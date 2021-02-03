@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body id="body">
+    <div style="text-align: center;">
+        <h1>Olá mundo</h1>
+
+        <table border="1" width="300" align="center">
+            <thead>
+                <tr>
+                    <th>Produtos</th>
+                    <th>Preços</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td><a href="{% url 'produto' product.id %}">{{ product.name }}</a></td>
+                        <td>R$ {{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <img src="{% static 'images/download.jpg' %}" class="back" onmousemove="legal()">
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
